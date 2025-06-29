@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600|Satisfy|Raleway|M+PLUS+Rounded+1c');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background-color: #fff /* rgba(229, 229, 229, 0.25) */;
+
+}
+
+hr{
+    width: 1000px;
+    border: 1px solid #FCA311;
+    margin-top: 10px;
+}
+
+.presentr {
+    font-family: 'Raleway';
+    font-size: 1vmax;
+}
+
+.presentr .progress {
+    position: fixed;
+    background: #dd3b3e;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0.3vh;
+    z-index: 1;
+    transition: all 1s;
+}
+
+.slides {
+    transition: all 0.1s;
+}
+
+
+
+
+/* HEADER AND FOOTER */
+
+.header{
+    position:absolute;
+    top: 0;
+    background-color: #14213D;
+    width: 100%;
+    height: 90px;
+    line-height: 90px;
+    border-bottom: 2px solid #FCA311;
+    padding-left: 1vw;
+    text-align: center;
+}
+
+.header i {
+    font-size: 0.8em;
+    margin-right:1vw;
+    color: #FCA311;
+}
+
+.footer{
+    position:absolute;
+    bottom: 0;
+    background-color: #14213D;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    color: #fff;
+    font-size: 0.7em;
+    text-align: right;
+}
+
+.cite{
+    width:100%;
+    position:absolute;
+    bottom: 32px;
+    font-size:0.9em;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-family: 'EB Garamond','Latin Modern Roman';
+
+}
+
+/* TITLE PAGE */
+
+
+.slides section.title {
+    background-color: #14213D;
+
+}
+
+.slides .logos img{
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.slides section.title p {
+    margin-top: 1vh;
+    line-height: 2;
+    text-align: center;
+    color: #e5e5e5;
+    font-size: 1.3em;
+}
+.slides .logos {
+    position:absolute;
+    bottom:0;
+    margin-top: 10vh;
+    background-color: #fff;
+    width: 100%;
+    padding: 30px;
+    text-align:center;
+    border-top: 3px solid #FCA311;
+    box-shadow: 0px 0px 42px -10px rgba(0,0,0,0.8) inset;
+    -webkit-box-shadow: 0px 0px 42px -10px rgba(0,0,0,0.8) inset;
+    -moz-box-shadow: 0px 0px 42px -10px rgba(0,0,0,0.8) inset;
+}
+.slides .logos img{
+    margin-left: 50px;
+}
+/* STYLING H* FOR THE SLIDES */
+
+
+.slides section h1 {
+    font-family: 'Raleway';
+    font-size: 3em;
+    color: #fff; /*#FCA311; */
+    margin-bottom: 1vh;
+}
+
+.slides section h2 {
+    font-family: 'Raleway';
+    font-size: 1.8em;
+    color: #fff; /*#FCA311; */
+    margin-bottom: 1vh;
+}
+
+.slides section h3 {
+    font-family: 'Raleway';
+    font-size: 1.6em;
+    color: #fff; /*#FCA311; */
+    margin-top: 3vh;
+    font-weight: bold;
+}
+
+.slides section h4 {
+    font-size: 1.4em;
+    color: black; /*#FCA311; */
+    font-weight: bold;
+}
+
+.slides section h5 {
+    font-size: 1.2em;
+    color: black; /*#FCA311; */
+    font-weight: bold;
+}
+
+.slides section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 1.5em;
+    
+}
+
+/* CONTENT SLIDES */
+
+/*
+THERE ARE TWO TYPES OF SLIDES:
+    - t1  - This is one column one row slide - useful for big pictures
+    - t2  - This is a two column one row slide, contains a flex container tf
+*/
+
+
+.outline {
+    margin-top: 20%;
+    widht: 500px;
+    list-style: none;
+    font-size: 1.5em;
+}
+.outline li{
+    line-height: 4;
+}
+
+
+.slides section.type h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+p{
+    line-height: 1.9;	
+}
+
+.tf p{
+    line-height: 1.9;    
+}
+
+.tf{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.tf.center {
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.bullets{
+    font-size: 1em;
+    line-height: 3;
+}
+
+.bullets-compact{
+    font-size: 1em;
+    line-height: 2;
+}
+
+
+.conclusion{
+    font-size: 1.1em;
+    line-height: 2.5;
+}
+
+.sublist{
+    font-size: 0.9em;
+    line-height: 1.8;
+}
+.sublist > li {
+    margin-left: 30px;
+
+}
+
+h4{
+    font-size: 1.2em;
+}
+
+.green{
+    color: green;
+}
+.blue{
+    color: blue;
+}
+.red{
+    color: red;
+}
+
+/* SLIDING STUFF - ANIMATION */
+
+
+
+.slides section.next-slide {
+    transform: translateX(100vw);
+    transition: all 0.3s;
+}
+
+.slides section.current-slide {
+    transition: all 0.3s;
+    filter: none;
+    transform: none;
+}
+
+.slides section.previous-slide {
+    transition: all 0.3s;
+    filter: none;
+    transform: translateX(-100vw);
+}
+
+
+.slides section.current-slide {
+    transform: none;
+    filter: none;
+}
+
+.slides .frag {
+    opacity: 0;
+    transform: translateY(-0.5vh);
+    transition: all 0.5s;
+}
+
+.slides .frag.active-frag {
+    transform: none;
+    opacity: 1;
+}
+
+
+@keyframes normalize {
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .slides section  {
+        padding: 0 2em;
+    }
+}
+
+.mt-1{
+    margin-top: 20px !important;
+}
+
+.mt-2{
+    margin-top: 40px !important;
+}
+
+.mt-3{
+    margin-top: 60px !important;
+}
+
+.mt-4{
+    margin-top: 80px !important;
+}
+
+.mt-4{
+    margin-top: 100px !important;
+}
+
+.MathJax {
+font-size: 25px !important;
+}
+

@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#FF4446">
+
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#FF4446">
+
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#FF4446">
+
+	<!-- SEO Stuff -->
+	<meta name="audience" lang="en" content="all">
+	<meta name="expires" content="7 days">
+	<meta name="robots" content="follow">
+	<meta name="revisit-after" content="7 days">
+
+	<!-- Open Graph tags -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Brainbot meeting - Zadar">
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	
+	<title>Synthetic analogues of motile cells and tissues</title>
+
+
+	<!-- Style sheets -->
+	<link rel="stylesheet" href="demo/styles.css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    </head>
+    <body>
+
+
+	<div class="presentr">
+	    <!-- <div class="progress"></div> -->
+
+	    <div class="slides">
+
+		<!-- Slide 1 -->
+		<section class="title">
+		    
+		    <h1 style="font-size:2.4em">Synthetic analogues of motile cells and tissues</h1>
+		    <hr>
+		    <h3></h3>
+		    <p>
+			Filip Novkoski, GRASP, University of Liège<br>
+			Nicolas Vandewalle, GRASP, University of Liège
+		    </p>
+		    <div class="logos">
+		    </div>
+		</section>
+
+		<!-- Slide 2 -->
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Introduction - active matter</h1>
+		    </div>
+
+		    <div class="tf">
+			<p>
+			    Agents consuming energy and transforming it into motion or forces - an out of equilibrium system 
+			</p>
+		    </div>
+		    <div class="tf mt-3">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/birds.jpg" width="620px">
+				<p>
+				    Flocking of birds
+				</p>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/wildabeest.png" width="620px">
+				<p>Herds of wildabeest</p>
+			    </center>
+			</div>
+			
+		    </div>
+		    <div class="tf mt-3">
+			<p>
+			    Through interactions between agents, collective motion can emerge
+			</p>
+		    </div>
+		    
+		    <div class="footer">
+			Francqui Symposium 2025. - KU Leuven
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Synthetic active matter</h1>
+		    </div>
+
+		    <div class="tf">
+			<p>
+			    Synthetic systems have become a current tool in the experimental study of active matter
+			</p>
+		    </div>
+		    <div class="tf mt-3">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/rods.png" height="420px">
+				<p>
+				    Vibrated polar granular matter
+				</p>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/colloids.png" height="420px">
+				<p>
+				    A variety of colloid swimmers
+				</p>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/hexbugs.jpg" height="420px">
+				<p>Vibrobots - Hexbugs</p>
+			    </center>
+			</div>
+			
+		    </div>
+		    <div class="tf mt-3">
+			<p>
+			    <b>There is still a lack of complete experimental control over the agent properties - notably interactions</b>
+			</p>
+		    </div>
+		    
+		    <div class="footer">
+			Francqui Symposium 2025. - KU Leuven
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The GRASPion</h1>
+		    </div>
+
+		    <div class="tf">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/brainbot.JPG" height="550px">
+				
+			    </center>
+			</div>
+
+			<div class="col">
+			    <h4>Introducing the GRASPion</h4>		    
+			    <ul class="bullets mt-2">
+				<li>A programmable vibrobot - executes user defined motion</li>
+				<li>Arduino based and easy to use - open source</li>
+				<li>Fully 3D printed</li>
+				<li>Low cost - 120€ per unit</li>
+				<li>Communication - IR and Bluetooth (under development)</li>
+			    </ul>
+			</div>
+			
+		    </div>
+		    
+		    <div class="footer">
+			Francqui Symposium 2025. - KU Leuven
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Programming diffusive motion </h1>
+		    </div>
+		    
+		    <div class="tf">
+			<div class="col">
+			    <p>
+				We can program a diffusive motion into the bot:
+				<br>
+				Go straight for $t\in[200,1200]$ ms →
+				Pick left or right randomly →
+				Turn for $t\in[200,1200]$
+			    </ol>
+			</p>
+			</div>
+		    </div>
+
+		    <div class="tf mt-1">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/trajectory_diffusive.png" height="550px">
+				<h6>The tracked trajectory of the bot</h6>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/msd_diffusive.png" height="550px">
+				<h6>Measured mean squared displacement</h6>
+			    </center>
+			</div>
+
+		    </div>
+		    
+		    <div class="footer">
+			Francqui Symposium 2025. - KU Leuven
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Creating a synthetic cell</h1>
+		    </div>
+		    
+		    <div class="tf mt-1">
+			
+			<div class="col">
+			    <p>
+				We encolse the bot within a closed paper ring <br>
+				The bot and ring form a <i>soft active particle</i> <br>
+				We track the bot and paper membrane to obtain their positions and form
+			    </p>
+			    <center>
+				<img class="mt-4" src="assets/images/cell/setup.png" height="400px">
+				<h6>The experimental synthetic cell setup</h6>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<video controls muted autoplay loop  width="700px"  src="assets/video/cell.mp4"></video>
+			    </center>
+			</div>
+
+		    </div>
+		    
+		    <div class="footer">
+			Francqui Symposium 2025. - KU Leuven
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Properties of the synthetic cell</h1>
+		    </div>
+		    
+		    <div class="tf mt-1">
+			
+			<div class="col">
+			    <p>
+				We encolse the bot within a closed paper ring <br>
+				The bot and ring form a <i>soft active particle</i> <br>
+				We track the bot and paper membrane to obtain their positions and form
+			    </p>
+			    <center>
+				<img class="mt-4" src="assets/images/cell/setup.png" height="400px">
+				<h6>The experimental synthetic cell setup</h6>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<video controls muted autoplay loop  width="700px"  src="assets/video/cell.mp4"></video>
+			    </center>
+			</div>
+
+		    </div>
+		    
+		    <div class="footer">
+			Francqui Symposium 2025. - KU Leuven
+		    </div>
+		</section>
+
+		
+		
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Setup</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<video controls muted autoplay loop  width="700px"  src="assets/video/test.mp4"></video>
+			    </center>
+			</div>
+			<div class="col">
+			    <p class="mt-2">
+				Plexiglass plate - side and bottom lighting <br><br>
+				Circular arena - 45 cm in radius <br><br>
+				Paper membranes - focussing on 160 and 130 g <br><br>
+				Black string glued to each membrane <br><br>
+				Brainbot fill - 50% in mode 1
+			    </p>
+			</div>
+		    </div>
+		    
+		    
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+		
+		
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Tracking</h1>
+		    </div>
+		    <div class="tf">
+			<div class="col">
+			    <video controls muted autoplay loop  width="600px"  src="assets/video/test.mp4"></video>
+			</div>
+			<div class="col">
+			    <video controls muted autoplay loop  width="600px"  src="assets/video/contours.mp4"></video>
+			</div>
+		    </div>
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+		
+		<section class="type t2">
+		    <div class="header">
+			<h1>The thick paper - 180g</h1>
+		    </div>
+
+		    <div class="tf mt-3">
+			<div class="col">
+			    <img src="assets/images/hard/velNorm.png" width="800px">
+			</div>
+		    </div>
+
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The thick paper - 180g</h1>
+		    </div>
+
+		    <div class="tf mt-3">
+			<div class="col">
+			    <img src="assets/images/hard/arStd.png" width="800px">
+			</div>
+		    </div>
+
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+
+		
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The thick paper - 180g</h1>
+		    </div>
+
+		    <div class="tf mt-3">
+			<div class="col">
+			    <img src="assets/images/hard/arMean.png" width="800px">
+			</div>
+		    </div>
+
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The thick paper - 180g</h1>
+		    </div>
+
+		    <div class="tf mt-3">
+			<div class="col">
+			    <img src="assets/images/hard/aspect.png" width="800px">
+			</div>
+		    </div>
+
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The thin paper - 130g</h1>
+		    </div>
+
+		    <div class="tf mt-3">
+			<div class="col">
+			    <img src="assets/images/soft/velNorm.png" width="800px">
+			</div>
+		    </div>
+
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The thin paper - 130g</h1>
+		    </div>
+
+		    <div class="tf mt-3">
+			<div class="col">
+			    <img src="assets/images/soft/msd.png" width="800px">
+			</div>
+		    </div>
+
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The thin paper - 130g</h1>
+		    </div>
+
+		    <div class="tf mt-3">
+			<div class="col">
+			    <video controls muted autoplay loop  width="600px"  src="assets/video/soft.mp4"></video>
+			</div>
+		    </div>
+
+		    <div class="footer">
+			Brainbots - Zadar 2025.
+		    </div>
+		</section>
+
+
+
+
+
+		
+		
+	    </div>
+	    
+
+	</div> 
+
+	<script src="dist/presentr.min.js"></script>
+	<script src="demo/code.js"></script>
+
+
+	<script>
+	 MathJax = {
+	     loader: {load: ['[tex]/color']},
+	     tex: {
+		 packages: {'[+]': ['color']},
+		 inlineMath: [['$', '$'], ['\\(', '\\)']]
+	     }
+	 };
+	</script>
+
+
+
+
+
+    </body>
+</html>
