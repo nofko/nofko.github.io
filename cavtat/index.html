@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#FF4446">
+
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#FF4446">
+
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#FF4446">
+
+	<!-- SEO Stuff -->
+	<meta name="audience" lang="en" content="all">
+	<meta name="expires" content="7 days">
+	<meta name="robots" content="follow">
+	<meta name="revisit-after" content="7 days">
+
+	<!-- Open Graph tags -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Brainbot meeting - Zadar">
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	
+	
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+	<title>Synthetic analogues of motile cells and tissues</title>
+
+
+	<!-- Style sheets -->
+	<link rel="stylesheet" href="demo/styles.css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    </head>
+    <body>
+
+
+	<div class="presentr">
+	    <!-- <div class="progress"></div> -->
+
+	    <div class="slides">
+
+		<!-- Slide 1 -->
+		<section class="title">
+
+		    <center>
+			<h1 style="font-size:2.4em">Synthetic soft active particles - from cell to tissue</h1>
+			<hr>
+		    </center>
+		    <h3></h3>
+		    <p>
+			Filip Novkoski<br> <b>PULS Group, FAU Erlangen-Nürnberg</b> - A.-S. Smith<br>
+			with <b>GRASP, University of Liege</b> - N. Vandewalle
+			
+		    </p>
+		    <div class="logos">
+			<img src="assets/images/logos/fau.png" height="90px">
+			<img src="assets/images/logos/irb.png" height="90px">
+			<img src="assets/images/logos/grasp.png" height="90px">
+			<img src="assets/images/logos/humboldt.webp" height="110px">
+		    </div>
+		</section>
+
+		<!-- Slide 2 -->
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Introduction - active matter</h1>
+		    </div>
+
+		    <div class="tf">
+			<p>
+			    Agents consuming energy and transforming it into motion or forces - an out of equilibrium system 
+			</p>
+		    </div>
+		    <div class="tf mt-3">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/birds.jpg" height="400px">
+				<p>
+				    Flocking of birds
+				</p>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/wildabeest.png">
+				<p>Herds of wildabeest</p>
+			    </center>
+			</div>
+			
+		    </div>
+		    <div class="tf mt-3">
+			<p>
+			    Through interactions between agents, collective motion can emerge
+			</p>
+		    </div>
+		    
+		    <div class="footer">
+			
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Synthetic active matter</h1>
+		    </div>
+
+		    <div class="tf">
+			<p>
+			    Synthetic systems have become a current tool in the experimental study of active matter
+			</p>
+		    </div>
+		    <div class="tf mt-3">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/rods.png" height="420px">
+				<p>
+				    Vibrated polar granular matter
+				</p>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/colloids.png" height="420px">
+				<p>
+				    A variety of colloid swimmers
+				</p>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/intro/hexbugs.jpg" height="420px">
+				<p>Vibrobots - Hexbugs</p>
+			    </center>
+			</div>
+			
+		    </div>
+		    <h5 class="mt-2 red">Two issues to tackle</h5>
+		    <div class="tf mt-3">
+			
+			<div class="col">
+			    <p>
+				<b class="green">Experimental control over agent properties</b>
+			    </p>
+			</div>
+			<div class="col">
+			    <p>
+				<b class="green">Moving away from hard to soft matter</b>
+			    </p>
+			</div>
+		    </div>
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The GRASPion</h1>
+		    </div>
+
+		    <div class="tf">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/brainbot.JPG" height="550px">
+				
+			    </center>
+			</div>
+
+			<div class="col">
+			    <h4>Introducing the GRASPion</h4>		    
+			    <ul class="bullets mt-2">
+				<li>A programmable bristlebot - executes user defined motion</li>
+				<li>Arduino based and easy to use - open source</li>
+				<li>Fully 3D printed</li>
+				<li>Low cost</li>
+				<li>Communication - IR, Bluetooth, radio</li>
+			    </ul>
+			</div>
+			
+		    </div>
+		    <div class="cite">
+			F. Novkoski et al. <i>GRASPion: an Open-Source, Programmable Brainbot for Active Matter Research</i> Rev. Sci. Instrum. <b>97</b>, 014704 (2026).<br>
+			M. Noirhomme et al. <i>Brainbots as smart autonomous active particles with programmable motion</i> Phys. Rev. App. <b>23</b>, 064008 (2025).
+		    </div>
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Programming diffusive motion </h1>
+		    </div>
+		    
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<p>
+				    We program a random motion into the bot
+				    <br>
+				    Go straight for $t\in[t_1,t_2]$ →
+				    Turn left or right randomly for $t\in[t_1,t_2]$
+				    
+				</p>
+			    </center>
+			</div>
+		    </div>
+
+		    <div class="tf mt-1">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/trajectory_diffusive.png" style="width:75%;">
+				<h6>The tracked trajectory of the bot</h6>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/msd_diffusive.png" style="width:75%;">
+				<h6>Measured mean squared displacement</h6>
+			    </center>
+			</div>
+
+		    </div>
+
+		    <div class="tf mt-1">
+			<div class="col">
+			    <center>
+				<p>
+				    <b>We will use this to study soft active particles later on</b>
+				</p>
+			    </center>
+			</div>
+		    </div>
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Light-sensitive motion</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <p>
+				Light sensitivity - velocity of random motion depends on amount of light
+			    </p>
+			</div>
+		    </div>
+
+		    <div class="tf mt-2">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/intensity.png" height="550px">
+				<h6>Light intensity in the bot arena</h6>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/heatmap.png" height="550px">
+				<h6>Measured average velocity of the light sensitive bot</h6>
+			    </center>
+			</div>
+
+		    </div>
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+		
+
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Onboard control</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <p>
+				A kinematic framework provides fully onboard decision making through model predictive control - intelligent active particle
+			    </p>
+			</div>
+		    </div>
+
+		    <div class="tf mt-2">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/flow.png" height="550px"><br>
+				<h6>Flowchart for onboard bot control</h6>
+			    </center>
+			</div>
+
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/fig8.png" height="550px"><br>
+				<h6>Execution of arbitrary reference trajcetories - lemniscate example</h6>
+			    </center>
+			</div>
+
+		    </div>
+		    <div class="cite">
+			I. Mammadli, et al. <i>Physics-informed digital twin and onboard control of a brainbot
+			for intelligent active matter</i> arXiv:2511.00384 (2025).<br>
+		    </div>
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Creating a synthetic cell</h1>
+		    </div>
+		    
+		    <div class="tf mt-1">
+			
+			<div class="col">
+			    
+			    <center>
+				<img src="assets/images/cell/cell.png" height="350px">
+				<h6>Left:The experimental synthetic cell setup. Right: deformation and<br>
+				    translation of a 2D membrane of radius $R$ with velocity $\mathbf{v}$</h6>
+			    </center>
+			    <p class="mt-3 mb-1">
+				The <i>cell</i> - bot enclosed in a deformable membrane (paper ring) <br>
+				What are the transport properties of such a particle? Iinfluence of softness - cell size<br>
+				Numerical modelling - overdamped dynamics
+				$$\begin{equation}
+				\boldsymbol{\mathfrak{f}}_\mathrm{bending}\left(\xi\right)+\boldsymbol{\mathfrak{f}}_\mathrm{st}\left(\xi\right)+\boldsymbol{\mathfrak{f}}_\mathrm{int}\left(\xi\right)=\boldsymbol{v}\left(\xi\right)\gamma_\mathrm{mem} R,
+				\end{equation}$$
+			    </p>
+			</div>
+
+			<div class="col">
+			    <center>
+				<video controls muted autoplay loop  width="700px"  src="assets/video/cell.mp4"></video>
+			    </center>
+			</div>
+
+
+		    </div>
+
+		    <div class="cite">
+			Simulations: S. Mohapatra, Postdoc, FAU <br>
+			Experiments: F. Wéry, PhD student, ULiege 
+			<span style="margin-left:25%;">S. Mohapatra et al. <i>Run and tumble dynamics of a soft robotic cell</i> arXiv:2606.05923 (2026).</span><br>
+		    </div>
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Motion of the synthetic cell</h1>
+		    </div>
+
+		    <div class="tf mt-2">
+			<div class="col">
+			    <center>
+				<h5>Coupled regime - small radius</h5><br>
+				<img src="assets/images/cell/trajectory-coupled.png" width="730px">
+			    </center>
+			</div>
+			<div class="col">
+			    <center>
+				<h5>Decoupled regime - large radius</h5><br>
+				<img src="assets/images/cell/trajectory-uncoupled.png" width="730px">
+			    </center>
+			</div>
+		    </div>
+
+		    <div class="tf mt-1">
+			<div class="col">
+			    <center>
+				<h5>Mean squared displacement of cell</h5><br>
+				<img src="assets/images/cell/msd.png" width="780px">
+			    </center>
+			</div>
+			<div class="col">
+			    <p class="mt-2">
+				Short time ballistic regime<br>
+				Diffusive on longer time scales <br>
+				Confirmed by long-time simulations
+			    </p>
+			</div>
+		    </div>
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Synthetic cell - stop and go</h1>
+		    </div>
+
+		    <div class="tf mt-1">
+			<div class="col">
+			    <center>
+				<img src="assets/images/cell/velocity.png" width="800px">
+				
+				<p>
+				    Periods of stop and go in the decoupled regime
+				    <b>- run and tumble behavior</b>
+				</p><br>
+				
+				<img src="assets/images/cell/pdf.png" width="800px">
+				
+				<p>Stop and go times follow exponential distributions <b>for all cell sizes</b>
+				</p>
+				
+			    </center>
+			</div>
+			<div class="col">
+			    <center>
+				<img src="assets/images/cell/times.png" width="800px">
+				<p>
+				    Go times decrease with size, while stop times increase <br>
+				    Good match with simulations for larger sizes
+				</p>
+			    </center>
+			</div>
+
+			
+		    </div>
+
+
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Modelling the transport</h1>
+		    </div>
+
+
+		    <div class="tf mt-2">
+			<div class="col">
+			    <img class="mt-2" src="assets/images/cell/diffusion.png" height="580px">
+			</div>
+			
+			<div class="col">
+			    <p>Two-state Markovian run-and-tumble particle model of cell<br>
+				Exponential distributions for stop and go times <br>
+				MSD is found to be
+				\[
+				\begin{align}
+				\Delta(\tau) &= 2\hat{v}_0^2 \Bigl(\tau\,\langle\tau_\mathrm{g}\rangle - \langle\tau_\mathrm{g}\rangle^{\,2}\left(1 - e^{\tau/\langle\tau_\mathrm{g}\rangle}\right)\Bigr),\\
+				\hat{v}_0 &= \sqrt{\bar{v}^2 + \sigma_v^2},
+				\end{align}
+				\]
+				where $\bar{v}$ and $\sigma_v^2$ are the mean and the variance of the full velocity distribution<br>
+				For short time scales
+				$$\Delta \left(\tau\right) \simeq (\hat{v}_0\, \tau)^2,$$
+				and long time scales
+				$$\Delta \left(\tau \right) \simeq \hat{D}\,\tau, \quad \hat{D}=2\, \hat{v}_0^{2}\, \langle\tau_\mathrm{g}\rangle$$
+				
+			    </p>
+			</div>
+			
+		    </div>
+
+
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Directing cell motion</h1>
+		    </div>
+
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<h4>Biological cell</h4>
+				<img src="assets/images/ratchet/bio.png" width="700px"><br><br>
+				<h4>Macroscopic experimental setup</h4>
+				<img src="assets/images/ratchet/ratchet-exp.png" width="700px"><br><br>
+				<h4>Simulation</h4>
+				<img src="assets/images/ratchet/ratchet-sim.png" width="700px">
+				
+				<p>
+				    Does a synthetic robotic cell ratchet through spatial symmetric breaking? <br>
+				    <span class="red">If yes, why and what are the key parameters?</span>
+				</p>
+			    </center>
+			</div>
+			
+		    </div>
+
+
+		    <div class="cite">
+			Experiments: J. Dupont, PhD Student, ULiege <br>
+			Simulation: P. Nowakowski, IRB Zagreb
+		    </div>
+
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Motion inside a ratchet</h1>
+		    </div>
+
+
+		    <div class="tf">
+			<div class="col">
+			    <h4>Experiment</h4>
+			    <video controls muted autoplay loop  width="1200px"  src="assets/video/rat_cut.mp4"></video><br>
+			    <img class="mt-3" src="assets/images/ratchet/trajectory.png" width="1200px"><br>
+
+			    <h4>Simulation</h4>
+			    <video controls muted autoplay loop  width="1200px"  src="assets/video/r7_simu.mp4"></video><br>
+			</div>
+		    </div>
+
+
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The directed motion</h1>
+		    </div>
+
+
+		    <div class="tf">
+			<div class="col">
+			    <img src="assets/images/ratchet/trajectory_comp.png" height=500px"><br>
+			    <center>
+				<p>Clear reference of motion to the right</p>
+			    </center>
+			</div>
+			<div class="col">
+			    <img src="assets/images/ratchet/potential2.png" height=500px"><br>
+			    <p>
+				<center>
+				    Pontential from simulation for slowly going straight bot <br><br>
+				    Energy barrier the same in both directions - gradient different
+				</center>
+
+			    </p>
+			</div>
+		    </div>
+
+
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The right-going probability</h1>
+		    </div>
+
+
+		    <div class="tf">
+			<div class="col">
+			    <img src="assets/images/ratchet/proba2.png" height=500px"><br>
+			    <center>
+				<p>A dip in the probability, and separation at critical radius</p>
+			    </center>
+			</div>
+			<div class="col">
+			    <img src="assets/images/ratchet/fig4A.png" height=500px"><br>
+			    <p>
+				<center>
+				    Importance of ratchet geometry <br><br>
+				    Maximally inscribed circle gives one critical radius 
+				</center>
+
+			    </p>
+			</div>
+		    </div>
+
+
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The right-going frequency </h1>
+		    </div>
+
+
+		    <div class="tf">
+			<div class="col">
+			    <img src="assets/images/ratchet/freq.png" height=500px"><br>
+			    <center>
+				<p>Separation is more clear in the frequency of going right</p>
+			    </center>
+			</div>
+			<div class="col">
+			    <img src="assets/images/ratchet/fig4B.png" height=500px"><br>
+			    <p>
+				<center>
+				    Appearance of an energy minimum at the neck<br><br>
+				    Membrane is stuck while bot keeps moving between compartments
+				</center>
+
+			    </p>
+			</div>
+		    </div>
+
+
+		    <div class="footer">
+			KU Leuven 14/01/2026
+		    </div>
+		</section>
+		
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Constructing tissues</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<video controls muted autoplay loop  width="750px"  src="assets/video/tissue/gas.mp4"></video>
+				<p>What happens if we start packing larger and larger numbers of cells? Jamming? Collective motion?</p>
+			    </center>
+			</div>
+		    </div>
+
+		    <div class="cite">
+			Simulations: K. Höllring, Postdoc, FAU
+		    </div>
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The phase transition</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<h4>Gas</h4>
+				<video controls muted autoplay loop  width="600px"  src="assets/video/tissue/gas.mp4"></video>
+				<p>Low packing</p>
+			    </center>
+			</div>
+			<div class="col">
+			    <center>
+				<h4>Solid</h4>
+				<video controls muted loop  width="600px"  src="assets/video/tissue/solid.mp4"></video>
+				<p>Medium packing</p>
+			    </center>
+			</div>
+			<div class="col">
+			    <center>
+				<h4>Liquid</h4>
+				<video controls muted loop  width="600px"  src="assets/video/tissue/liquid2.mp4"></video>
+				<p>High packing</p>
+			    </center>
+			</div>
+		    </div>
+		    
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Synthetic tissue - Cell shape</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<img src="assets/images/tissue/ipr.png" width="800px">
+			    </center>
+			</div>
+			<div class="col">
+			    <p class="mt-2">
+				We look at the isoperimetric ratio (IPR)
+				\[
+				IPR=\langle \frac{P}{\sqrt{A}} \rangle
+				\]
+				Describing cell shape - for circle $IPR=3.55$<br>
+				Packing fraction defined as
+				\[
+				\phi=\frac{1}{A_{arena}}\sum_i^N A_i
+				\]
+				Sharp increase in IPR at $\phi=0.9$ - disk jamming<br>
+				Transition in IPR at around $3.8$ 
+			    </p>
+			</div>
+		    </div>
+		    
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+		
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Synthetic tissue - motility</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<iframe 
+				    src="http://localhost:8000/scatter3d.html"
+				    width="1000" 
+				    height="800"
+				    scrolling="no"
+				    style="overflow: hidden;"
+				    frameborder="0">
+				</iframe>
+				<p>Normalized velocity of active cells</p>
+			    </center>
+			</div>
+			<div class="col">
+			    <p class="mt-5">
+				Cell motility defined as
+				$$\frac{\langle v_{cell} \rangle}{\langle v_{bot} \rangle}$$
+				reduces with packing fraction $\phi$ <br>
+				Clear appearance of solid state around $\phi_c=0.9$ <br>
+				<span class="red">A transition to a liquid at $IPR=3.8$</span><br>
+				Agrees with predictions from theory and numerics - vertex model
+				$$E(A,P)=(A-A_0)^2+\frac{1}{r}(P-P_0)^2$$
+			    </p>
+			</div>
+		    </div>
+		    
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Synthetic tissue - T1 transitions</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<img class="mt-3" src="assets/images/tissue/t1_schema.png" width="550px">
+				<p>Example of T1 transition</p>
+				<img src="assets/images/tissue/voronoi2.png" width="550px">
+			    </center>
+			</div>
+			<div class="col">
+			    <ul class="bullets mt-4">
+				<li>T1 transitions - common occurence in real tissues</li>
+				<li>Flood filling to determine neighbours</li>
+				<li>Increase of T1 transition rate at critical $\phi$ and $IPR$</li>
+			    </ul><br>
+			    <img src="assets/images/tissue/t1rate.png" width="650px">
+			</div>
+		    </div>
+		    
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Synthetic tissue - elliptical cells</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<h4 class="mt-5">Predeformed elliptical cells</h4>
+				<video controls muted loop  width="600px"  src="assets/video/tissue/tissue_el.mp4"></video>
+				<p>Liquid for all packings</p>
+			    </center>
+			</div>
+			<div class="col">
+			    <center>
+				<iframe 
+				    src="http://localhost:8000/scatter3del.html"
+				    width="1000" 
+				    height="800"
+				    scrolling="no"
+				    style="overflow: hidden;"
+				    frameborder="0">
+				</iframe>
+			    </center>
+			</div>
+		    </div>
+		    
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Conclusion</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<img class="mt-3" src="assets/images/tissue/tissue.JPG" height="500px">
+				
+			    </center>
+			</div>
+			<div class="col">
+			    <ul class="bullets mt-3">
+				<li>The GRASPion - a new programmable tool for study of active matter</li>
+				<li>Construction of synthetic cells - control over statistical properties</li>
+				<li>Motion rectification of macroscopic cells through spatial symmetry breaking</li>
+				<li>Construction of tissues - packing of large cell numbers</li>
+				<li>Experimental demonstration of compression induced transition to a liquid state</li>
+			    </ul>
+			</div>
+		    </div>
+
+		    <div class="tf mt-3">
+			<div class="col">
+			    <h4>Thank you for your attention</h4>
+			</div>
+		    </div>
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The GRASPion</h1>
+		    </div>
+
+		    <div class="tf">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/circuit.png" height="700px">
+				
+			    </center>
+			</div>
+
+			
+		    </div>
+		    <div class="footer">
+		    </div>
+		</section>
+
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>The GRASPion</h1>
+		    </div>
+
+		    <div class="tf">
+			
+			<div class="col">
+			    <center>
+				<img src="assets/images/brainbot/turn.png" height="650px">
+				
+			    </center>
+			</div>
+
+			<div class="col">
+			    <ul class="bullets mt-2">
+				<li>Left motor - turning right</li>
+				<li>Right motor - turning left</li>
+				<li>Controlled turns around either front legs</li>
+				<li>Both motors on - straight motion</li>
+			    </ul>
+			</div>
+			
+		    </div>
+		    <div class="footer">
+		    </div>
+		</section>
+
+		<section class="type t2">
+		    <div class="header">
+			<h1>Tissue - bidisperse</h1>
+		    </div>
+
+		    <div class="tf">
+			<div class="col">
+			    <center>
+				<video controls muted autoplay loop  width="800px"  src="assets/video/tissue/speedup_2.mp4"></video>
+				
+			    </center>
+			</div>
+		    </div>
+		    
+		    
+		    <div class="footer">
+		    </div>
+		</section>
+
+		
+		
+	    </div>
+	    
+
+	</div> 
+
+	<script src="dist/presentr.min.js"></script>
+	<script src="demo/code.js"></script>
+
+	<script>
+	 MathJax = {
+	     loader: {
+		 load: ['[tex]/color', '[tex]/boldsymbol']
+	     },
+	     tex: {
+		 packages: {
+		     '[+]': ['color', 'boldsymbol']
+		 },
+		 inlineMath: [['$', '$'], ['\\(', '\\)']]
+	     }
+	 };
+	</script>
+
+
+
+
+    </body>
+</html>
