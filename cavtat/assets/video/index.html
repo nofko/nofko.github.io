@@ -6,17 +6,21 @@
 <title>Files</title>
 <style>
   body { font-family: system-ui, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 16px; color: #222; }
-  h1 { font-size: 1.4rem; }
+  h1 { font-size: 1.4rem; word-break: break-all; }
+  #crumbs { margin-bottom: 8px; color: #777; word-break: break-all; }
+  #crumbs a { color: #0366d6; }
   ul { list-style: none; padding: 0; }
   li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; }
   a { color: #0366d6; text-decoration: none; word-break: break-all; }
   a:hover { text-decoration: underline; }
+  .dir { font-weight: 600; }
   .size { color: #777; white-space: nowrap; }
   .err { color: #b00; }
 </style>
 </head>
 <body>
 <h1 id="title">Files</h1>
+<div id="crumbs"></div>
 <ul id="list"><li>Loading…</li></ul>
 
 <script>
@@ -28,67 +32,106 @@ const FOLDER = "";   // folder path in the repo, e.g. "videos" or "docs/videos"
 const BRANCH = "";   // e.g. "main" (blank = repo's default branch)
 // --------------------------------------------------------------------------
 
-(async () => {
-  const list = document.getElementById("list");
-  const host = location.hostname;
-  let parts = location.pathname.split("/").filter(Boolean);
-  if (parts.length && parts[parts.length - 1].endsWith(".html")) parts.pop();
+const list = document.getElementById("list");
+const crumbs = document.getElementById("crumbs");
+const host = location.hostname;
+const parts = location.pathname.split("/").filter(Boolean);
+if (parts.length && parts[parts.length - 1].endsWith(".html")) parts.pop();
 
-  let owner = OWNER, repo = REPO, folder = FOLDER;
-  if (!owner && host.endsWith(".github.io")) {
-    owner = host.replace(".github.io", "");
-    // Project site: owner.github.io/repo/...  User site: owner.github.io/...
-    if (!repo) {
-      if (parts.length && parts[0].toLowerCase() !== host.toLowerCase()) {
-        // try as project site first
-        repo = parts[0];
-        if (!folder) folder = parts.slice(1).join("/");
-      }
-    }
+let owner = OWNER || (host.endsWith(".github.io") ? host.replace(".github.io", "") : "");
+let repo = REPO, root = FOLDER, resolved = false;
+
+const join = (...p) => p.filter(Boolean).join("/");
+const enc = p => p.split("/").map(encodeURIComponent).join("/");
+const fmt = n => n > 1e9 ? (n/1e9).toFixed(1)+" GB" : n > 1e6 ? (n/1e6).toFixed(1)+" MB" : (n/1e3).toFixed(0)+" KB";
+
+async function api(o, r, path) {
+  const url = `https://api.github.com/repos/${o}/${r}/contents/${enc(path)}` + (BRANCH ? `?ref=${BRANCH}` : "");
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(res.status);
+  return res.json();
+}
+
+// Work out which repo/folder this page lives in (only once).
+async function load(sub) {
+  if (resolved) return api(owner, repo, join(root, sub));
+  const tries = [];
+  if (REPO) tries.push([REPO, FOLDER]);
+  else {
+    if (parts.length) tries.push([parts[0], FOLDER || parts.slice(1).join("/")]); // project site
+    tries.push([host, FOLDER || parts.join("/")]);                               // user site
   }
-
-  async function fetchContents(o, r, f) {
-    const url = `https://api.github.com/repos/${o}/${r}/contents/${f}` + (BRANCH ? `?ref=${BRANCH}` : "");
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(res.status);
-    return res.json();
-  }
-
-  let items;
-  try {
-    items = await fetchContents(owner, repo, folder);
-  } catch (e) {
-    // Fall back to user site (repo = owner.github.io, folder = full path)
+  for (const [r, f] of tries) {
     try {
-      repo = REPO || host;
-      folder = FOLDER || parts.join("/");
-      items = await fetchContents(owner, repo, folder);
-    } catch (e2) {
-      list.innerHTML = `<li class="err">Couldn't load the file list. Fill in OWNER, REPO and FOLDER at the top of index.html.</li>`;
-      return;
-    }
+      const data = await api(owner, r, join(f, sub));
+      repo = r; root = f; resolved = true;
+      return data;
+    } catch (e) {}
+  }
+  throw new Error("not found");
+}
+
+async function render() {
+  const sub = decodeURIComponent(location.hash.slice(1)).replace(/^\/+|\/+$/g, "");
+  list.innerHTML = "<li>Loading…</li>";
+  let items;
+  try { items = await load(sub); }
+  catch (e) {
+    list.innerHTML = `<li class="err">Couldn't load the file list. Check the folder exists, or fill in OWNER, REPO and FOLDER at the top of index.html.</li>`;
+    return;
   }
 
-  document.getElementById("title").textContent = folder || "Files";
-  const files = items.filter(i => i.type === "file" && i.name !== "index.html")
-                     .sort((a, b) => a.name.localeCompare(b.name));
-  if (!files.length) { list.innerHTML = "<li>No files yet.</li>"; return; }
+  // Title + breadcrumb trail
+  const rootName = root.split("/").pop() || "Files";
+  document.getElementById("title").textContent = sub ? sub.split("/").pop() : rootName;
+  crumbs.innerHTML = "";
+  const segs = sub ? sub.split("/") : [];
+  const top = document.createElement("a");
+  top.href = "#"; top.textContent = rootName;
+  crumbs.append(top);
+  segs.forEach((s, i) => {
+    crumbs.append(" / ");
+    const a = document.createElement("a");
+    a.href = "#" + encodeURIComponent(segs.slice(0, i + 1).join("/"));
+    a.textContent = s;
+    crumbs.append(a);
+  });
 
-  const fmt = n => n > 1e9 ? (n/1e9).toFixed(1)+" GB" : n > 1e6 ? (n/1e6).toFixed(1)+" MB" : (n/1e3).toFixed(0)+" KB";
+  const dirs = items.filter(i => i.type === "dir").sort((a, b) => a.name.localeCompare(b.name));
+  const files = items.filter(i => i.type === "file" && !(i.name === "index.html" && !sub))
+                     .sort((a, b) => a.name.localeCompare(b.name));
   list.innerHTML = "";
+
+  if (sub) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "#" + encodeURIComponent(segs.slice(0, -1).join("/"));
+    a.textContent = "⬆ Up one level";
+    li.append(a); list.append(li);
+  }
+  for (const d of dirs) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.className = "dir";
+    a.href = "#" + encodeURIComponent(join(sub, d.name));
+    a.textContent = "📁 " + d.name;
+    li.append(a); list.append(li);
+  }
   for (const f of files) {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = encodeURIComponent(f.name);   // relative link to the file on your site
-    a.download = f.name;                   // tells the browser to download instead of play
+    a.href = enc(join(sub, f.name));  // relative to this page
+    a.download = f.name;
     a.textContent = f.name;
     const s = document.createElement("span");
-    s.className = "size";
-    s.textContent = fmt(f.size);
-    li.append(a, s);
-    list.append(li);
+    s.className = "size"; s.textContent = fmt(f.size);
+    li.append(a, s); list.append(li);
   }
-})();
+  if (!dirs.length && !files.length) list.innerHTML += "<li>This folder is empty.</li>";
+}
+
+window.addEventListener("hashchange", render);
+render();
 </script>
 </body>
 </html>
