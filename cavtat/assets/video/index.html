@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Files</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 16px; color: #222; }
+  h1 { font-size: 1.4rem; }
+  ul { list-style: none; padding: 0; }
+  li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; }
+  a { color: #0366d6; text-decoration: none; word-break: break-all; }
+  a:hover { text-decoration: underline; }
+  .size { color: #777; white-space: nowrap; }
+  .err { color: #b00; }
+</style>
+</head>
+<body>
+<h1 id="title">Files</h1>
+<ul id="list"><li>Loading…</li></ul>
+
+<script>
+// ---- Settings: leave blank to auto-detect from a *.github.io address. ----
+// Fill these in if you use a custom domain or publish from a /docs folder.
+const OWNER  = "";   // GitHub username, e.g. "janedoe"
+const REPO   = "";   // repository name, e.g. "my-site"
+const FOLDER = "";   // folder path in the repo, e.g. "videos" or "docs/videos"
+const BRANCH = "";   // e.g. "main" (blank = repo's default branch)
+// --------------------------------------------------------------------------
+
+(async () => {
+  const list = document.getElementById("list");
+  const host = location.hostname;
+  let parts = location.pathname.split("/").filter(Boolean);
+  if (parts.length && parts[parts.length - 1].endsWith(".html")) parts.pop();
+
+  let owner = OWNER, repo = REPO, folder = FOLDER;
+  if (!owner && host.endsWith(".github.io")) {
+    owner = host.replace(".github.io", "");
+    // Project site: owner.github.io/repo/...  User site: owner.github.io/...
+    if (!repo) {
+      if (parts.length && parts[0].toLowerCase() !== host.toLowerCase()) {
+        // try as project site first
+        repo = parts[0];
+        if (!folder) folder = parts.slice(1).join("/");
+      }
+    }
+  }
+
+  async function fetchContents(o, r, f) {
+    const url = `https://api.github.com/repos/${o}/${r}/contents/${f}` + (BRANCH ? `?ref=${BRANCH}` : "");
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(res.status);
+    return res.json();
+  }
+
+  let items;
+  try {
+    items = await fetchContents(owner, repo, folder);
+  } catch (e) {
+    // Fall back to user site (repo = owner.github.io, folder = full path)
+    try {
+      repo = REPO || host;
+      folder = FOLDER || parts.join("/");
+      items = await fetchContents(owner, repo, folder);
+    } catch (e2) {
+      list.innerHTML = `<li class="err">Couldn't load the file list. Fill in OWNER, REPO and FOLDER at the top of index.html.</li>`;
+      return;
+    }
+  }
+
+  document.getElementById("title").textContent = folder || "Files";
+  const files = items.filter(i => i.type === "file" && i.name !== "index.html")
+                     .sort((a, b) => a.name.localeCompare(b.name));
+  if (!files.length) { list.innerHTML = "<li>No files yet.</li>"; return; }
+
+  const fmt = n => n > 1e9 ? (n/1e9).toFixed(1)+" GB" : n > 1e6 ? (n/1e6).toFixed(1)+" MB" : (n/1e3).toFixed(0)+" KB";
+  list.innerHTML = "";
+  for (const f of files) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = encodeURIComponent(f.name);   // relative link to the file on your site
+    a.download = f.name;                   // tells the browser to download instead of play
+    a.textContent = f.name;
+    const s = document.createElement("span");
+    s.className = "size";
+    s.textContent = fmt(f.size);
+    li.append(a, s);
+    list.append(li);
+  }
+})();
+</script>
+</body>
+</html>
